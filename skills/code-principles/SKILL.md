@@ -32,6 +32,7 @@ Readable first, clever never.
   const RETRY_POLICY = { MAXIMUM_ATTEMPTS: 3, DELAY_MS: 250 } as const;
   ```
   A constant used by several files of one feature goes in a `<feature>.constants.ts` at the root of that feature's folder, not in a global bag. Values only one vendor/provider/environment knows live in that module's config so generic code never mentions it.
+- **One source of truth per value.** A fact lives in one place and everything else derives from it. If a rate, limit or name is also written inside a message, label or comment (`"Discount (10%)"` next to `DISCOUNT_RATE = 0.1`), build the text from the constant (`` `Discount (${DISCOUNT_RATE * PERCENT_FACTOR}%)` ``) so changing one cannot leave the other stale.
 - **Everything is typed.** Every parameter, return value, field, constant and boundary has an explicit, honest type. No `any`, no implicit `any`, no unchecked casts.
 
 ### 2. High cohesion

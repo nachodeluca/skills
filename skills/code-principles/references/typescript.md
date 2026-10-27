@@ -63,3 +63,5 @@ Also in TypeScript: depend on interfaces and use `import type` for them, declare
 - Follow the design system's primitives and tokens; no raw colors or magic spacing numbers where tokens exist.
 - Accessibility is part of done: labels, roles, keyboard, focus, contrast.
 - User-visible text lives in one place (a constants/copy module), not scattered inline, so it can be reviewed and translated.
+- Text that mentions a business value (a discount rate, a limit, a price) is built from the constant, not typed again: a message saying "10%" next to `DISCOUNT_RATE = 0.1` will lie the day the rate changes.
+- Calculations (totals, discounts, formatting rules) live in a pure function outside the component, so they are testable without rendering.
