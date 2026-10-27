@@ -1,0 +1,4 @@
+const MAXIMUM_OPEN_ORDERS = 5;
+const ORDER_ID_PREFIX = "order";
+
+export { MAXIMUM_OPEN_ORDERS, ORDER_ID_PREFIX };
